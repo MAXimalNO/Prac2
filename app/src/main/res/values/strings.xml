@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Prac2</string>
+    <string name="info_input">Введите ваше имя:</string>
+    <string name="btn_in">вход</string>
+    <string name="hint_twalk">Время для прогулки</string>
+    <string name="hint_addr">Адрес</string>
+    <string name="switch_status">Статус</string>
+    <string name="btn_out">выход</string>
 </resources>
