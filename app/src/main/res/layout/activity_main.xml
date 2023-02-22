@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="30sp"
+            android:textSize="@dimen/Ac1Txt"
             android:text="@string/info_input"
             />
 
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textSize="@dimen/Ac1Txt"
             android:ems="7"
             android:inputType="textPersonName"
             />
@@ -54,7 +54,7 @@
             android:backgroundTint="@color/btn_bg"
             android:textColor="@color/btn_txt"
             android:text="@string/btn_in"
-            android:textSize="25sp"
+            android:textSize="@dimen/Ac1TxtBtn"
             android:onClick="onClick"
             />
     </LinearLayout>

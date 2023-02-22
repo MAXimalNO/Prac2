@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Ac1Txt">30sp</dimen>
+    <dimen name="Ac1TxtBtn">25sp</dimen>
+</resources>
+
