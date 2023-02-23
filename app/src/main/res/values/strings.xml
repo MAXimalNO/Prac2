@@ -6,4 +6,5 @@
     <string name="hint_addr">Адрес</string>
     <string name="switch_status">Статус</string>
     <string name="btn_out">выход</string>
+    <string name="sw_find">Идёт поиск</string>
 </resources>

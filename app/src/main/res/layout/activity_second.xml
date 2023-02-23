@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgprofile"
+    android:id="@+id/act2_rl"
     tools:context=".SecondActivity">
 
     <ImageView
@@ -55,7 +56,7 @@
             android:hint="@string/hint_addr"
             />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/act2_switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
