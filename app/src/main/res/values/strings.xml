@@ -7,4 +7,6 @@
     <string name="switch_status">Статус</string>
     <string name="btn_out">выход</string>
     <string name="sw_find">Идёт поиск</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
