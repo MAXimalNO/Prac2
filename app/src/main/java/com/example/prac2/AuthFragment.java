@@ -5,17 +5,23 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.prac2.databinding.FragmentAuthBinding;
 
 public class AuthFragment extends Fragment {
 
     static final private String TAG = "AuthFragment";
+    View viewfr;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,8 +35,38 @@ public class AuthFragment extends Fragment {
                              Bundle savedInstanceState) {
         Toast.makeText(getContext(), "onCreateView", Toast.LENGTH_LONG ).show();
         Log.d(TAG, "onCreateView");
+
+        View viewfr = inflater.inflate(R.layout.fragment_auth, container, false);
+
+        Bundle backRes = getArguments();
+        if(backRes!=null){
+            TextView t = (TextView)viewfr.findViewById(R.id.frg1_txt);
+            EditText et = (EditText)viewfr.findViewById(R.id.frg1_et);
+
+            t.setText("Здравствуйте, " + getArguments().getString("nameBack") + "!");
+            et.setText(getArguments().getString("nameBack"));
+            et.setVisibility(View.INVISIBLE);
+        }
+
+        AppCompatButton btn = (AppCompatButton)viewfr.findViewById(R.id.frg1_btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText et = (EditText)viewfr.findViewById(R.id.frg1_et);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", et.getText().toString());
+
+                getParentFragmentManager().beginTransaction().
+                        setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainerView,ProfFragment.class,bundle)
+                        .commit();
+            }
+        });
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_auth, container, false);
+        return viewfr;
     }
 
 
