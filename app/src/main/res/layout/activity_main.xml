@@ -8,54 +8,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bgfon"
-        android:scaleType="center"
-        />
+        android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logodogs"
-            />
-        <TextView
-            android:id="@+id/act1_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="@dimen/Ac1Txt"
-            android:text="@string/info_input"
-            />
-
-        <EditText
-            android:id="@+id/act1_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="@dimen/Ac1Txt"
-            android:ems="7"
-            android:inputType="textPersonName"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/act1_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="5"
-            android:backgroundTint="@color/btn_bg"
-            android:textColor="@color/btn_txt"
-            android:text="@string/btn_in"
-            android:textSize="@dimen/Ac1TxtBtn"
-            android:onClick="onClick"
-            />
-    </LinearLayout>
 </FrameLayout>
+
