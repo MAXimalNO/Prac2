@@ -81,6 +81,29 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/btn_out"
             />
+        <Button
+            android:id="@+id/frg2_btnN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/frg2_btn"
+            app:layout_constraintTop_toBottomOf="@id/frg2_switch1"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/colcol"
+            />
+
+        <Button
+            android:id="@+id/frg2_btnC"
+            android:layout_width="71dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/chat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/frg2_btn"
+            app:layout_constraintTop_toBottomOf="@id/frg2_switch1"
+            />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

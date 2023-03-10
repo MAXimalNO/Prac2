@@ -31,6 +31,29 @@ public class ProfFragment extends Fragment {
         TextView t = (TextView) view.findViewById(R.id.frg2_name);
         t.setText(name);
 
+        //Кнопка для перехода на фрагмент с листом уведомлений
+        Button btn2 = (Button) view.findViewById(R.id.frg2_btnN);
+        //Кнопка для перехода на фрагмент с листом сообщений
+        Button btn3 = (Button) view.findViewById(R.id.frg2_btnC);
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainerView,NotifFragment.class,null)
+                        .commit();
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainerView,ChatFragment.class,null)
+                        .commit();
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
