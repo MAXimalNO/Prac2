@@ -18,4 +18,11 @@
         android:textSize="@dimen/title"
         android:text="@string/title_NotifFrg" />
 
+    <ListView
+        android:id="@+id/notiffrg_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notiffrg_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
