@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ public class NotifFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String notif = adapterView.getItemAtPosition(i).toString();
                 Toast.makeText(getContext(), notif, Toast.LENGTH_SHORT).show();
+                Log.i("ListView",notif);
             }
         });
 
