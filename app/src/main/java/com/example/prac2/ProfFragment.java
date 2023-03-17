@@ -28,6 +28,10 @@ public class ProfFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_prof, container, false);
 
+        String name = getArguments().getString("name");
+        TextView t = (TextView) view.findViewById(R.id.frg2_name);
+        t.setText(name);
+
         //Кнопка для перехода на фрагмент AuthFragment
         Button btn = (Button) view.findViewById(R.id.frg2_btn);
         //Кнопка для перехода на фрагмент с листом уведомлений
@@ -45,11 +49,11 @@ public class ProfFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_authFragment);
+                Bundle bd = new Bundle();
+                bd.putString("nameBack",name);
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_authFragment,bd);
             }
         });
-
-
 
         return view;
     }
