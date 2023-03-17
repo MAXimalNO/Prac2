@@ -45,7 +45,7 @@ public class ProfFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_notifFragment);
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_authFragment);
             }
         });
 
