@@ -3,6 +3,7 @@ package com.example.prac2;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,6 @@ public class ProfFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        name = getArguments().getString("name");
     }
 
     @Override
@@ -27,10 +27,9 @@ public class ProfFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_prof, container, false);
-        Button btn = (Button) view.findViewById(R.id.frg2_btn);
-        TextView t = (TextView) view.findViewById(R.id.frg2_name);
-        t.setText(name);
 
+        //Кнопка для перехода на фрагмент AuthFragment
+        Button btn = (Button) view.findViewById(R.id.frg2_btn);
         //Кнопка для перехода на фрагмент с листом уведомлений
         Button btn2 = (Button) view.findViewById(R.id.frg2_btnN);
         //Кнопка для перехода на фрагмент с листом сообщений
@@ -39,32 +38,18 @@ public class ProfFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.fragmentContainerView,NotifFragment.class,null)
-                        .commit();
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_notifFragment);
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.fragmentContainerView,ChatFragment.class,null)
-                        .commit();
-            }
-        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("nameBack",name);
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.fragmentContainerView,AuthFragment.class,bundle)
-                        .commit();
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_notifFragment);
             }
         });
+
+
 
         return view;
     }
