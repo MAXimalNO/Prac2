@@ -34,12 +34,11 @@ public class AuthFragment extends Fragment {
 
         View viewfr = inflater.inflate(R.layout.fragment_auth, container, false);
         AppCompatButton bt = (AppCompatButton) viewfr.findViewById(R.id.frg1_btn);
+        EditText et = (EditText) viewfr.findViewById(R.id.frg1_et);
 
         //При возвращении на фрагмент
         if(getArguments()!=null){
             TextView t = (TextView)viewfr.findViewById(R.id.frg1_txt);
-            EditText et = (EditText)viewfr.findViewById(R.id.frg1_et);
-
             t.setText("Здравствуйте, " + getArguments().getString("nameBack") + "!");
             et.setText(getArguments().getString("nameBack"));
             et.setVisibility(View.INVISIBLE);
@@ -48,11 +47,10 @@ public class AuthFragment extends Fragment {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText et = view.findViewById(R.id.frg1_et);
+                String name = et.getText().toString();
                 Bundle bd = new Bundle();
-                bd.putString("name",et.getText().toString());
-                Log.i("s","df");
-                //Navigation.findNavController(view).navigate(R.id.action_authFragment_to_profFragment,bd);
+                bd.putString("name",name);
+                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_profFragment,bd);
             }
         });
 
