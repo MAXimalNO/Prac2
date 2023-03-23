@@ -37,12 +37,19 @@ public class ProfFragment extends Fragment {
         //Кнопка для перехода на фрагмент с листом уведомлений
         Button btn2 = (Button) view.findViewById(R.id.frg2_btnN);
         //Кнопка для перехода на фрагмент с листом сообщений
-        //Button btn3 = (Button) view.findViewById(R.id.frg2_btnC);
+        Button btn3 = (Button) view.findViewById(R.id.frg2_btnC);
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_profFragment_to_notifFragment);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_chatFragment);
             }
         });
 

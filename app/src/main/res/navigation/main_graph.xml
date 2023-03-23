@@ -25,10 +25,18 @@
         <action
             android:id="@+id/action_profFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_profFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
     <fragment
         android:id="@+id/notifFragment"
         android:name="com.example.prac2.NotifFragment"
         android:label="fragment_notif"
         tools:layout="@layout/fragment_notif" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.prac2.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 </navigation>
