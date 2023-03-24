@@ -17,6 +17,17 @@
         android:textSize="@dimen/title"
         android:text="@string/title_ChatfFrg" />
 
+    <Button
+        android:id="@+id/chatfrg_btnUved"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/vopros"
+        app:layout_constraintBottom_toTopOf="@id/chatfrg_list"
+        app:layout_constraintStart_toEndOf="@+id/chatfrg_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatfrg_list"
         android:layout_width="match_parent"
