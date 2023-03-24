@@ -2,6 +2,7 @@ package com.example.prac2;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -86,6 +87,11 @@ public class ChatFragment extends Fragment {
                         == PackageManager.PERMISSION_GRANTED) {
                     notificationManager.notify(NOTIFY_ID, builder.build());
                 }
+
+                //Запуск сервиса
+                Intent intent = new Intent(getContext(), MyService.class);
+                getContext().startService(intent);
+
             }
         });
 
