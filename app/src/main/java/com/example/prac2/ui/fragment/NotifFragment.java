@@ -30,7 +30,7 @@ public class NotifFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         notifViewModel = new ViewModelProvider(this).get(NotifViewModel.class);
-
+        //Log.i("PLS",notifViewModel.notifs.getValue().get(0).getTitle());
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class NotifFragment extends Fragment {
         //Получаем элемент ListView
         lv = view.findViewById(R.id.notiffrg_list);
         //Создаём адаптер
-        MyListAdapter mla = new MyListAdapter(view.getContext(),R.layout.list_item,list);
+        MyListAdapter mla = new MyListAdapter(view.getContext(),R.layout.list_item,notifViewModel.notifs.getValue());
         //Устанавливаем адаптер
         lv.setAdapter(mla);
         //Подписка на изменения
