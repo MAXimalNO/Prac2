@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.prac2.AuthFragment"
+        android:name="com.example.prac2.ui.fragment.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/profFragment"
-        android:name="com.example.prac2.ProfFragment"
+        android:name="com.example.prac2.ui.fragment.ProfFragment"
         android:label="fragment_prof"
         tools:layout="@layout/fragment_prof" >
         <action
@@ -31,12 +31,12 @@
     </fragment>
     <fragment
         android:id="@+id/notifFragment"
-        android:name="com.example.prac2.NotifFragment"
+        android:name="com.example.prac2.ui.fragment.NotifFragment"
         android:label="fragment_notif"
         tools:layout="@layout/fragment_notif" />
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.prac2.ChatFragment"
+        android:name="com.example.prac2.ui.fragment.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
 </navigation>

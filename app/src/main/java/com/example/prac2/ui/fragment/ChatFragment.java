@@ -1,4 +1,4 @@
-package com.example.prac2;
+package com.example.prac2.ui.fragment;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,16 +10,17 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.prac2.MyService;
+import com.example.prac2.R;
+import com.example.prac2.ui.adapter.MyRecyclerAdapter;
 
 import java.util.ArrayList;
 

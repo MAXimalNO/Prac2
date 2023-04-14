@@ -1,9 +1,7 @@
-package com.example.prac2;
+package com.example.prac2.ui.fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.prac2.R;
+import com.example.prac2.ui.adapter.MyListAdapter;
 
 import java.util.ArrayList;
 

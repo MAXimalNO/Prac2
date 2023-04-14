@@ -1,4 +1,4 @@
-package com.example.prac2;
+package com.example.prac2.ui.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.prac2.R;
 
 public class MainActivity extends AppCompatActivity {
 

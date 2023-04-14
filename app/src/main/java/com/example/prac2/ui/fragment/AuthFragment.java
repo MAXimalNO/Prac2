@@ -1,4 +1,4 @@
-package com.example.prac2;
+package com.example.prac2.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,7 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.prac2.databinding.FragmentAuthBinding;
+import com.example.prac2.R;
+
 
 public class AuthFragment extends Fragment {
     static final private String TAG = "AuthFragment";

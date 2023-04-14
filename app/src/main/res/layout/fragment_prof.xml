@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgprofile"
     android:id="@+id/frg2_rl"
-    tools:context=".ProfFragment">
+    tools:context=".ui.fragment.ProfFragment">
 
     <ImageView
         android:id="@+id/frg2_img"

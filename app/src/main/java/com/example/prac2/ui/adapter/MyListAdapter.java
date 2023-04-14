@@ -1,4 +1,4 @@
-package com.example.prac2;
+package com.example.prac2.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.prac2.R;
 
 import java.util.List;
 
