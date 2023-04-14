@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_profFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_profFragment_to_dogFragment"
+            app:destination="@id/dogFragment" />
     </fragment>
     <fragment
         android:id="@+id/notifFragment"
@@ -39,4 +42,13 @@
         android:name="com.example.prac2.ui.fragment.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/dogFragment"
+        android:name="com.example.prac2.ui.fragment.DogFragment"
+        android:label="fragment_dog"
+        tools:layout="@layout/fragment_dog" >
+        <action
+            android:id="@+id/action_dogFragment_to_profFragment"
+            app:destination="@id/profFragment" />
+    </fragment>
 </navigation>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.prac2.R;
@@ -30,9 +31,11 @@ public class ProfFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_prof, container, false);
 
-        String name = getArguments().getString("name");
-        TextView t = (TextView) view.findViewById(R.id.frg2_name);
-        t.setText(name);
+        if(getArguments()!=null){
+            String name = getArguments().getString("name");
+            TextView t = (TextView) view.findViewById(R.id.frg2_name);
+            t.setText(name);
+        }
 
         //Кнопка для перехода на фрагмент AuthFragment
         Button btn = (Button) view.findViewById(R.id.frg2_btn);
@@ -40,6 +43,16 @@ public class ProfFragment extends Fragment {
         Button btn2 = (Button) view.findViewById(R.id.frg2_btnN);
         //Кнопка для перехода на фрагмент с листом сообщений
         Button btn3 = (Button) view.findViewById(R.id.frg2_btnC);
+        //Иконка для перехода в профиль соаки
+        ImageView imgv = (ImageView) view.findViewById(R.id.frg2_img);
+
+        imgv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_profFragment_to_dogFragment);
+            }
+        });
+
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override

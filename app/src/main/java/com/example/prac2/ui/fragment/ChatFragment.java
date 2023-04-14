@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class ChatFragment extends Fragment {
 
-    private ArrayList<String> list = new ArrayList<>();
+    public ArrayList<String> list = new ArrayList<>();
     //Идентификатор уведомления
     private static final int NOTIFY_ID = 123;
     //Идентификатор канала

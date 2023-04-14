@@ -17,10 +17,10 @@ import java.util.List;
 
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>{
 
-    private LayoutInflater inflater;
-    private List<String> list;
+    public LayoutInflater inflater;
+    public List<String> list;
 
-    MyRecyclerAdapter(Context context, List<String> list) {
+    public MyRecyclerAdapter(Context context, List<String> list) {
         this.list = list;
         this.inflater = LayoutInflater.from(context);
     }
