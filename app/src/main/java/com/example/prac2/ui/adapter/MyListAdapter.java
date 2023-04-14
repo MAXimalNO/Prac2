@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.prac2.R;
+import com.example.prac2.data.model.Notif;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyListAdapter extends ArrayAdapter<String> {
@@ -32,6 +34,14 @@ public class MyListAdapter extends ArrayAdapter<String> {
         String item = items.get(position);
         textView.setText(item);
         return view;
+    }
+
+    public void updateNotifs(List<Notif> notifs) {
+        List<String> upitems = new ArrayList<>();
+        for(Notif i : notifs){
+            upitems.add(i.getTitle());
+        }
+        items = upitems;
     }
 }
 

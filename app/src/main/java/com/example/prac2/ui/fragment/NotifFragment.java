@@ -3,6 +3,7 @@ package com.example.prac2.ui.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.prac2.R;
 import com.example.prac2.ui.adapter.MyListAdapter;
+import com.example.prac2.ui.viewmodel.NotifViewModel;
 
 import java.util.ArrayList;
 
@@ -22,14 +24,12 @@ public class NotifFragment extends Fragment {
 
     private ListView lv;
     private ArrayList<String> list = new ArrayList<>();
+    private NotifViewModel notifViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //заполнение данными массива
-        for (int i = 1; i < 201; i++){
-            list.add("Уведомление " + i);
-        }
+        notifViewModel = new ViewModelProvider(this).get(NotifViewModel.class);
 
     }
     @Override
@@ -44,6 +44,8 @@ public class NotifFragment extends Fragment {
         MyListAdapter mla = new MyListAdapter(view.getContext(),R.layout.list_item,list);
         //Устанавливаем адаптер
         lv.setAdapter(mla);
+        //Подписка на изменения
+        notifViewModel.notifs.observe(getViewLifecycleOwner(), notifs -> mla.updateNotifs(notifs));
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
