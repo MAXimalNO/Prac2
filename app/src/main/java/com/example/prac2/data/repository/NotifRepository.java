@@ -9,8 +9,8 @@ import java.util.List;
 
 public class NotifRepository {
     private LiveData<List<Notif>> notifs;
-
     public NotifRepository(){notifs = NotifSource.createList();}
-
     public LiveData<List<Notif>> getData(){return notifs;}
 }
+
+
