@@ -1,14 +1,18 @@
 package com.example.prac2.ui.fragment;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +26,7 @@ import com.example.prac2.R;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -59,20 +64,22 @@ public class AuthFragment extends Fragment {
                 Navigation.findNavController(view)
                         .navigate(R.id.action_authFragment_to_profFragment,bd);
 
-                //Введённый username
-                Log.i("file", "User name: " + name);
-                //Абсолютный путь к каталогу приложения
-                Log.i("file", "App specific directory: " + getContext().getFilesDir());
+                if (ContextCompat.checkSelfPermission(getContext(),
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
-                //Создание и запись в файл юзернэйма
-                try(FileOutputStream fos = getContext()
-                        .openFileOutput("FileUser",Context.MODE_PRIVATE)) {
-                    fos.write(name.getBytes());
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } ;
+                    File file2 = new File(Environment.getExternalStorageDirectory(), "example.txt");
+                    try {
+                        FileWriter writer = new FileWriter(file2);
+                        writer.write(name); //Запись username
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    int requestCode = 1;
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
+                }
 
 
             }
