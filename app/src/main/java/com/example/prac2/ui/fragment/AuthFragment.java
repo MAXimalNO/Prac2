@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.room.Room;
 
 import android.os.Environment;
 import android.util.Log;
@@ -23,12 +24,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prac2.R;
+import com.example.prac2.data.UsernRoomDatabase;
+import com.example.prac2.data.Username;
+import com.example.prac2.data.UsernameDao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 
 public class AuthFragment extends Fragment {
@@ -65,11 +70,17 @@ public class AuthFragment extends Fragment {
                 Navigation.findNavController(view)
                         .navigate(R.id.action_authFragment_to_profFragment,bd);
 
-                SharedPreferences pref = getActivity().getSharedPreferences("TABLE",Context.MODE_PRIVATE);
-                //Создание Editor
-                SharedPreferences.Editor editor = pref.edit();
-                //Сохранение полльзовательского имени
-                editor.putString("UserName", name);
+                //Создание базы данных
+                UsernRoomDatabase db = Room.databaseBuilder(getContext(),
+                        UsernRoomDatabase.class, "database-name").build();
+                //Интерфейс бд
+                UsernameDao usDao = db.usDao();
+                //Вставка данных
+                usDao.insert(new Username(name));
+
+                //Получение данных из бд
+                List<Username> userns = usDao.getAlphabetizedWords();
+                Log.i("file",userns.get(0).getUsern());
 
             }
         });
