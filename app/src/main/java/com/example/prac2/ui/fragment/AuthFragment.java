@@ -1,6 +1,7 @@
 package com.example.prac2.ui.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -64,23 +65,11 @@ public class AuthFragment extends Fragment {
                 Navigation.findNavController(view)
                         .navigate(R.id.action_authFragment_to_profFragment,bd);
 
-                if (ContextCompat.checkSelfPermission(getContext(),
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-
-                    File file2 = new File(Environment.getExternalStorageDirectory(), "example.txt");
-                    try {
-                        FileWriter writer = new FileWriter(file2);
-                        writer.write(name); //Запись username
-                        writer.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    int requestCode = 1;
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
-                }
-
+                SharedPreferences pref = getActivity().getSharedPreferences("TABLE",Context.MODE_PRIVATE);
+                //Создание Editor
+                SharedPreferences.Editor editor = pref.edit();
+                //Сохранение полльзовательского имени
+                editor.putString("UserName", name);
 
             }
         });
