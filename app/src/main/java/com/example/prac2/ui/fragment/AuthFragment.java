@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 import com.example.prac2.R;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 
 public class AuthFragment extends Fragment {
     static final private String TAG = "AuthFragment";
@@ -51,10 +56,29 @@ public class AuthFragment extends Fragment {
                 String name = et.getText().toString();
                 Bundle bd = new Bundle();
                 bd.putString("name",name);
-                Navigation.findNavController(view).navigate(R.id.action_authFragment_to_profFragment,bd);
+                Navigation.findNavController(view)
+                        .navigate(R.id.action_authFragment_to_profFragment,bd);
+
+                //Введённый username
+                Log.i("file", "User name: " + name);
+                //Абсолютный путь к каталогу приложения
+                Log.i("file", "App specific directory: " + getContext().getFilesDir());
+
+                //Создание и запись в файл юзернэйма
+                try(FileOutputStream fos = getContext()
+                        .openFileOutput("FileUser",Context.MODE_PRIVATE)) {
+                    fos.write(name.getBytes());
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } ;
+
+
             }
         });
 
         return viewfr;
     }
+
 }
