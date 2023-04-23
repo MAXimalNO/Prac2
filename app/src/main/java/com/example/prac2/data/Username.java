@@ -12,10 +12,11 @@ public class Username {
     @ColumnInfo(name = "user")
     private String usern;
 
-    public Username(){this.usern = "some_user";}
+    public Username(){}
     public Username(@NonNull String user) {this.usern = user;}
 
-    public void setUsern(String user){this.usern = user;}
+    @NonNull
     public String getUsern(){return this.usern;}
+    public void setUsern(@NonNull String user){this.usern = user;}
 }
 

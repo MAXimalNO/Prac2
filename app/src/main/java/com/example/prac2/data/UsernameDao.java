@@ -1,5 +1,6 @@
 package com.example.prac2.data;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -17,6 +18,6 @@ public interface UsernameDao {
     void deleteAll();
 
     @Query("SELECT * FROM usern_table ORDER BY user ASC")
-    List<Username> getAlphabetizedWords();
+    LiveData<List<Username>> getAllUsern();
 }
 

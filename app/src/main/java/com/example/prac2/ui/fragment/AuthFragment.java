@@ -27,6 +27,8 @@ import com.example.prac2.R;
 import com.example.prac2.data.UsernRoomDatabase;
 import com.example.prac2.data.Username;
 import com.example.prac2.data.UsernameDao;
+import com.example.prac2.data.repository.UsernRepository;
+import com.example.prac2.ui.viewmodel.loginViewModel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,6 +40,8 @@ import java.util.List;
 
 public class AuthFragment extends Fragment {
     static final private String TAG = "AuthFragment";
+    loginViewModel loginViewModel = new loginViewModel();
+
     View viewfr;
 
     @Override
@@ -52,6 +56,8 @@ public class AuthFragment extends Fragment {
         View viewfr = inflater.inflate(R.layout.fragment_auth, container, false);
         AppCompatButton bt = (AppCompatButton) viewfr.findViewById(R.id.frg1_btn);
         EditText et = (EditText) viewfr.findViewById(R.id.frg1_et);
+
+        UsernRepository userNameRep = new UsernRepository(getContext());
 
         //При возвращении на фрагмент
         if(getArguments()!=null){
@@ -70,17 +76,11 @@ public class AuthFragment extends Fragment {
                 Navigation.findNavController(view)
                         .navigate(R.id.action_authFragment_to_profFragment,bd);
 
-                //Создание базы данных
-                UsernRoomDatabase db = Room.databaseBuilder(getContext(),
-                        UsernRoomDatabase.class, "database-name").build();
-                //Интерфейс бд
-                UsernameDao usDao = db.usDao();
-                //Вставка данных
-                usDao.insert(new Username(name));
+                //Создание файла
+                loginViewModel.createFileSharedPreferences(getContext(),"UserN", name);
 
-                //Получение данных из бд
-                List<Username> userns = usDao.getAlphabetizedWords();
-                Log.i("file",userns.get(0).getUsern());
+                //Занесние записи в бд
+                userNameRep.usDao.insert(new Username(name));
 
             }
         });
@@ -89,3 +89,5 @@ public class AuthFragment extends Fragment {
     }
 
 }
+
+

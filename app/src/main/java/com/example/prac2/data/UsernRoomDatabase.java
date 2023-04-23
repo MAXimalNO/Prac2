@@ -13,22 +13,20 @@ import java.util.concurrent.Executors;
 public abstract class UsernRoomDatabase extends RoomDatabase {
 
     public abstract  UsernameDao usDao();
-
     private static volatile UsernRoomDatabase INSTANCE;
-    private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-
-    static UsernRoomDatabase getDatabase(final Context context) {
+    public static UsernRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (UsernRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     UsernRoomDatabase.class, "Usern_database")
+                            .allowMainThreadQueries()
                             .build();
                 }
             }
         }
         return INSTANCE;
     }
+
 }
+
